@@ -45,14 +45,14 @@ function displayList(listRecords){
 }
 function checkAge(){
     if (this.checked) {
-        let list2 = list.filter(element => {
-            console.log(element);
-            return element[3] > 18;
-        })
-        displayList(list2);
+        displayList(list);
    }
    else {
-    displayList(list);
+    let list2 = list.filter(element => {
+        console.log(element);
+        return element[3] > 18;
+    })
+    displayList(list2);
    }
 }
 save.addEventListener('click', saveRecord);
