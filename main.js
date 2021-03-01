@@ -1,4 +1,6 @@
 const save = document.querySelector('#save');
+const ckeck = document.querySelector('#check');
+
 const list = [];
 
 function saveRecord() {
@@ -11,25 +13,23 @@ function saveRecord() {
     country = document.querySelector('#country').value;
     diabeteYes = document.querySelector('#yes').checked;
     diabeteNo = document.querySelector('#no').checked;
-
     if((fname.trim().length < 2) || (lname.trim().length < 2)){
         var toastEl = document.querySelector('.toast');
         const toast = new bootstrap.Toast(toastEl, {})
         toast.show();
     }
     else {
-        const mList = [lname, fname, sex, age, city, country, diabeteNo];
+        const mList = [lname, fname, sex, parseInt(age), city, country, diabeteNo];
 
         list.push(mList);
-        displayList();
+        displayList(list);
     }
-
 }
 
-function displayList(){
+function displayList(listRecords){
     mylist = document.querySelector('#list');
     mylist.innerHTML = '';
-    list.forEach(element => {
+    listRecords.forEach(element => {
         const singleList = document.createElement('div');
         singleList.className = 'border m-1';
 
@@ -43,4 +43,17 @@ function displayList(){
         
     });
 }
+function checkAge(){
+    if (this.checked) {
+        let list2 = list.filter(element => {
+            console.log(element);
+            return element[3] > 18;
+        })
+        displayList(list2);
+   }
+   else {
+    displayList(list);
+   }
+}
 save.addEventListener('click', saveRecord);
+check.addEventListener('change', checkAge);
