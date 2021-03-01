@@ -15,7 +15,7 @@
   <body>
     <div class="container">
       <div class="form pt-5">
-        <form class="row g-3 needs-validation" novalidate>
+        <div class="row g-3">
           <div class="col-md-6">
             <input
               type="text"
@@ -113,7 +113,6 @@
                 name="diabete"
                 id="no"
                 value="no"
-                checked
               />
               <label class="form-check-label" for="no"> No </label>
             </div>
@@ -126,6 +125,7 @@
                 name="diabete"
                 id="unknown"
                 value="unknown"
+                checked
               />
               <label class="form-check-label" for="unknown"> Unknown </label>
             </div>
@@ -133,13 +133,14 @@
 
           <div class="col-12 d-flex justify-content-end">
             <button
+              id="save"
               class="btn btn-primary d-flex justify-content-end"
               type="submit"
             >
               Save
             </button>
           </div>
-        </form>
+        </div>
       </div>
       <div class="list-container pt-5">
         <div class="list-header d-flex justify-content-between">
@@ -158,14 +159,25 @@
             </div>
           </div>
         </div>
-        <div class="list">
-          <div class="border m-1">
-            <p class="ms-2 pt-2">Jean DUPONT (Male), 46 - Paris(France)</p>
-          </div>
-          <div class="border m-1">
-            <p class="ms-2 pt-2">Jean DUPONT (Male), 46 - Paris(France)</p>
-          </div>
+        <div id="list"></div>
+      </div>
+    </div>
+    <div
+      class="toast align-items-center text-white bg-danger border-0 m-auto"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+    >
+      <div class="d-flex">
+        <div class="toast-body">
+          Check le length of first name and last name, and rety
         </div>
+        <button
+          type="button"
+          class="btn-close btn-close-white me-2 m-auto"
+          data-bs-dismiss="toast"
+          aria-label="Close"
+        ></button>
       </div>
     </div>
 
